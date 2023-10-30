@@ -4,9 +4,9 @@ import java.util.Iterator;
 import java.util.List;
 
 
-public class GroupOfTeacher<Teach extends Teacher> implements Iterable<Teacher> {
+public class GroupOfTeacher<T extends Teacher> implements Iterable<Teacher> {
     private String nameGroup;
-    private List<Teach> numberOfTeachers;
+    private List<T> numberOfTeachers;
     private int index;
 
     public GroupOfTeacher(String nameGroup) {
@@ -18,7 +18,7 @@ public class GroupOfTeacher<Teach extends Teacher> implements Iterable<Teacher> 
         return nameGroup;
     }
 
-    public void add(Teach teacher){
+    public void add(T teacher){
         numberOfTeachers.add(teacher);
     }
 
@@ -26,7 +26,7 @@ public class GroupOfTeacher<Teach extends Teacher> implements Iterable<Teacher> 
         return numberOfTeachers.size();
     }
 
-    public Teach get(Integer index) {
+    public T get(Integer index) {
         return numberOfTeachers.get(index);
     }
 
@@ -40,10 +40,10 @@ public class GroupOfTeacher<Teach extends Teacher> implements Iterable<Teacher> 
     }
 
     private class TeachersIterator implements Iterator<Teacher> {
-        private List<Teach> numberOfTeachers;
+        private List<T> numberOfTeachers;
         private int counter;
 
-        public TeachersIterator(List<Teach> numberOfTeachers) {
+        public TeachersIterator(List<T> numberOfTeachers) {
             this.numberOfTeachers = numberOfTeachers;
             this.counter = 0;
         }
@@ -54,7 +54,7 @@ public class GroupOfTeacher<Teach extends Teacher> implements Iterable<Teacher> 
         }
 
         @Override
-        public Teach next() {
+        public T next() {
             if (hasNext()) {
                 return numberOfTeachers.get(index++);
             }
